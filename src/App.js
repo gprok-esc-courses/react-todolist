@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import TasksScreen from "./components/TasksScreen";
+import CompletedScreen from "./components/CompletedScreen";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div>
+                <h1>TODO LIST</h1>
+                <Route path={`/`} component={TasksScreen} exact></Route>
+                <Route path={`/completed`} component={CompletedScreen}></Route>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
